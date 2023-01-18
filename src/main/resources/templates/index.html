@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+  <h3>홈화면</h3>
+  <a class="button" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+</body>
+</html>

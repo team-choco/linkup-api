@@ -6,7 +6,8 @@ spring:
   jpa:
     show_sql: true
     hibernate:
-      ddl-auto: create-drop
+      #ddl-auto: create-drop
+      ddl-auto: update
     defer-datasource-initialization: true
   datasource:
     driver-class-name: org.h2.Driver
