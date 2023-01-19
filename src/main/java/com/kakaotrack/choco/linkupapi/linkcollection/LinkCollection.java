@@ -12,6 +12,10 @@ import java.util.List;
 @Setter
 @Entity
 public class LinkCollection {
+    /*
+    링크 모음을 만들 때 생성해야 하는 것 같음.
+    링크 모음 이름
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -15,6 +15,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    /*
+    로그인환경설정
+    그 로그인 페이지나 나오고 그리고 성공했을 때 나오는 페이지등 설정함.
+    .permitAll() 모두 다 허용
+    .deny뭐시기가 모두 다 차단.
+     */
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests().requestMatchers(
@@ -42,6 +48,8 @@ public class SecurityConfig {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+    //암호화된 비밀번호를 리턴하네요?그쵸?
+
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();

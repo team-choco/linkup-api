@@ -9,6 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserCreateForm {
+    /*
+    회원가입시 유저폼인데
+    @NotEmpty는 말 그대로 비워두면 안되는 칸이라서 메세지를 전하고 있음.
+     */
     @Size(min=3,max=25)
     @NotEmpty(message = "사용자ID는 필수항목입니다.")
     private String username;
