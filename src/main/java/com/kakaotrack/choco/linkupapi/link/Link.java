@@ -3,28 +3,26 @@ package com.kakaotrack.choco.linkupapi.link;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Table(name = "links")
+@NoArgsConstructor
 public class Link {
-    /*
-    링크 생성시 필요한 내용들
-    순서대로
-    아이디
-    링크제목
-    링크 설명 내용
-    링크 주소
-     */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String linkTitle;
-    private String linkContent;
-    private String linkAddress;
+    @Column
+    private String link_title;
+    @Column
+    private String link_content;
+    @Column
+    private String link_address;
 
     @ManyToOne
-    private SiteUser siteUser;
-
+    private SiteUser site_user;
 }
