@@ -1,5 +1,6 @@
 package com.kakaotrack.choco.linkupapi.link;
 
+import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,13 @@ public class LinkService {
         return linkRepository.findAll();
     }
 
-    public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser){
+    public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser, LinkCollection linkCollection){
         Link link = new Link();
         link.setLink_title(linkTitle);
         link.setLink_content(linkContent);
         link.setLink_address(linkAddress);
         link.setSite_user(siteUser);
+        link.setLink_collection(linkCollection);
         return linkRepository.save(link);
     }
     public void deleteLink(Long id){

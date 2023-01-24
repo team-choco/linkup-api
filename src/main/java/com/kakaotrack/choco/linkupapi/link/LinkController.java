@@ -1,5 +1,6 @@
 package com.kakaotrack.choco.linkupapi.link;
 
+import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,8 @@ public class LinkController {
     }
 
     @PostMapping(value="/links")
-    public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser){
-        Link link = linkService.createLink(linkTitle,linkContent,linkAddress,siteUser);
+    public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser, LinkCollection linkCollection){
+        Link link = linkService.createLink(linkTitle,linkContent,linkAddress,siteUser,linkCollection);
         return link;
     }
 }

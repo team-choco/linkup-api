@@ -1,5 +1,6 @@
 package com.kakaotrack.choco.linkupapi.link;
 
+import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,4 +26,8 @@ public class Link {
 
     @ManyToOne
     private SiteUser site_user;
+
+    @ManyToOne
+    @JoinColumn(name="link_collection_id")
+    private LinkCollection link_collection;
 }
