@@ -4,9 +4,7 @@ import com.kakaotrack.choco.linkupapi.category.Category;
 import com.kakaotrack.choco.linkupapi.link.Link;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +23,8 @@ public class LinkCollectionController {
         LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,listLink,category);
         return linkCollection;
     }
+
+    @DeleteMapping(value = "/link-collections/{id}")
+    public void deleteLinkCollections(@PathVariable long id){ linkCollectionService.deleteLinkCollection(id);}
+
 }

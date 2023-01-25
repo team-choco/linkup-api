@@ -3,9 +3,7 @@ package com.kakaotrack.choco.linkupapi.link;
 import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +22,8 @@ public class LinkController {
         Link link = linkService.createLink(linkTitle,linkContent,linkAddress,siteUser,linkCollection);
         return link;
     }
+
+    @DeleteMapping(value = "/links/{id}")
+    public void deleteLink(@PathVariable long id){ linkService.deleteLink(id);}
+
 }
