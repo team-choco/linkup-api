@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -17,11 +18,15 @@ public class LinkCollectionService {
         return linkCollectionRepository.findAll();
     }
 
+    public Optional<LinkCollection> getBySiteUser(Long id){
+        return linkCollectionRepository.findBySiteUser(id);
+    }
+
     public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
         LinkCollection linkCollection = new LinkCollection();
         linkCollection.setLink_list(listLink);
         linkCollection.setLink_collection_name(linkCollectionName);
-        linkCollection.setSite_user(siteUser);
+        linkCollection.setSiteUser(siteUser);
         linkCollection.setCategory(category);
         return linkCollectionRepository.save(linkCollection);
     }
@@ -29,5 +34,6 @@ public class LinkCollectionService {
     public void deleteLinkCollection(Long id){
         linkCollectionRepository.deleteById(id);
     }
+
 
 }

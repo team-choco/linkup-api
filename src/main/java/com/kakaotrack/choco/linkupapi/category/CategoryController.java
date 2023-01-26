@@ -13,11 +13,12 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-    @Autowired
-    private LinkCollectionRepository linkCollectionRepository;
 
     @GetMapping(value = "/categories")
     public List<Category> getAll() {return categoryService.getAll();}
+
+    @GetMapping(value = "/categories/{id}")
+    public List<Category> getBySiteUser(@PathVariable long id) {return categoryService.getBySiteUser(id);}
 
     @PostMapping(value = "/categories")
     public Category createCategory(String categoryName, List<LinkCollection> linkCollectionList, SiteUser siteUser){

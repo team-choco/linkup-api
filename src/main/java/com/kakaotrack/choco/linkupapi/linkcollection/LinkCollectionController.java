@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class LinkCollectionController {
@@ -16,6 +17,11 @@ public class LinkCollectionController {
     @GetMapping(value = "/link-collections")
     public List<LinkCollection> getAll(){
         return linkCollectionService.getAll();
+    }
+
+    @GetMapping(value = "/link-collections/{id}")
+    public Optional<LinkCollection> getBySiteUser(@PathVariable long id){
+        return linkCollectionService.getBySiteUser(id);
     }
 
     @PostMapping(value = "/link-collections")

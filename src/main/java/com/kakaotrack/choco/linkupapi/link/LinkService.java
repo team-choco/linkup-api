@@ -16,12 +16,16 @@ public class LinkService {
         return linkRepository.findAll();
     }
 
+    public List<Link> getBySiteUser(Long id){
+        return (List<Link>) linkRepository.findBySiteUser(id);
+    }
+
     public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser, LinkCollection linkCollection){
         Link link = new Link();
         link.setLink_title(linkTitle);
         link.setLink_content(linkContent);
         link.setLink_address(linkAddress);
-        link.setSite_user(siteUser);
+        link.setSiteUser(siteUser);
         link.setLink_collection(linkCollection);
         return linkRepository.save(link);
     }

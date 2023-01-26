@@ -25,7 +25,7 @@ public class Link {
     private String link_address;
 
     @ManyToOne
-    private SiteUser site_user;
+    private SiteUser siteUser;
 
     @ManyToOne
     @JoinColumn(name="link_collection_id")

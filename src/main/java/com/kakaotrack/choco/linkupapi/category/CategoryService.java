@@ -15,6 +15,10 @@ public class CategoryService {
 
     public List<Category> getAll() {return categoryRepository.findAll();}
 
+    public List<Category> getBySiteUser(Long id){
+        return (List<Category>) categoryRepository.findBySiteUser(id);
+    }
+
     public Category createCategory(String categoryName, List<LinkCollection> linkCollectionList, SiteUser siteUser){
         Category category = new Category();
         category.setCategory_name(categoryName);

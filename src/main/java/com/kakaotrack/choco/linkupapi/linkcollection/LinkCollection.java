@@ -22,7 +22,7 @@ public class LinkCollection {
     private String link_collection_name;
 
     @ManyToOne
-    private SiteUser site_user;
+    private SiteUser siteUser;
 
     @OneToMany(mappedBy = "link_collection", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"link_collection"})

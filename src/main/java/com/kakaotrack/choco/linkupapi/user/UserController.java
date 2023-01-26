@@ -8,8 +8,11 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -61,4 +64,11 @@ public class UserController {
     public String login() {
         return "login_form";
     }
+
+
+    @GetMapping("/users/{id}")
+    public Optional<SiteUser> getById(@PathVariable long id){
+        return userService.getById(id);
+    }
+
 }

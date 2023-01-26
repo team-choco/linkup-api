@@ -17,6 +17,11 @@ public class LinkController {
         return linkService.getAll();
     }
 
+    @GetMapping(value="/links/{id}")
+    public List<Link> getBySiteUser(@PathVariable long id){
+        return linkService.getBySiteUser(id);
+    }
+
     @PostMapping(value="/links")
     public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser, LinkCollection linkCollection){
         Link link = linkService.createLink(linkTitle,linkContent,linkAddress,siteUser,linkCollection);
