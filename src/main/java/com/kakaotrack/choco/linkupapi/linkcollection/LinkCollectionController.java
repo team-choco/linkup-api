@@ -25,8 +25,8 @@ public class LinkCollectionController {
     }
 
     @PostMapping(value = "/link-collections")
-    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
-        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,listLink,category);
+    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
+        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,category);
         return linkCollection;
     }
 
