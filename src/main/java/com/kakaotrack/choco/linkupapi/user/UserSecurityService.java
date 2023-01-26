@@ -16,7 +16,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class UserSecurityService implements UserDetailsService {
-
+    /*
+    회원로그인 서비스로
+    회원이 로그인 맞으면 값을 제대로 주는 그런거....
+     */
     private final UserRepository userRepository;
 
     @Override

@@ -13,3 +13,6 @@ public enum UserRole {
 
     private String value;
 }
+/*
+여기 부분은 모르겠음 일단 보라색부분이 하이퍼링크같은 느낌이었음.
+ */

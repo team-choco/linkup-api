@@ -8,13 +8,20 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    /*
+    로그인한 유저에게만 보이는 controller같음(내추측상)
+    아래는 그냥 회원가입, 로그아웃, 로그인 시 없는 아이디 알려주는 내용등...
+     */
     private final UserService userService;
 
     @GetMapping("/signup")
@@ -48,8 +55,20 @@ public class UserController {
 
         return "redirect:/";
     }
+
+    /*
+    여기는 로그인 폼으로 로그인 페이지로 감.
+    참고로 여기 페이지 templates에서 html로 되어있음.
+     */
     @GetMapping("/login")
     public String login() {
         return "login_form";
     }
+
+
+    @GetMapping("/users/{id}")
+    public Optional<SiteUser> getById(@PathVariable long id){
+        return userService.getById(id);
+    }
+
 }
