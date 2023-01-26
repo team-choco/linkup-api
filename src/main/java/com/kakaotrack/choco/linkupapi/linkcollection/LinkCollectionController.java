@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 public class LinkCollectionController {
     @Autowired
@@ -25,8 +26,8 @@ public class LinkCollectionController {
     }
 
     @PostMapping(value = "/link-collections")
-    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
-        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,listLink,category);
+    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
+        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,category);
         return linkCollection;
     }
 

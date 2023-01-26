@@ -22,9 +22,8 @@ public class LinkCollectionService {
         return linkCollectionRepository.findBySiteUser(id);
     }
 
-    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
+    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
         LinkCollection linkCollection = new LinkCollection();
-        linkCollection.setLink_list(listLink);
         linkCollection.setLink_collection_name(linkCollectionName);
         linkCollection.setSiteUser(siteUser);
         linkCollection.setCategory(category);

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 public class CategoryController {
 
@@ -21,8 +22,8 @@ public class CategoryController {
     public List<Category> getBySiteUser(@PathVariable long id) {return categoryService.getBySiteUser(id);}
 
     @PostMapping(value = "/categories")
-    public Category createCategory(String categoryName, List<LinkCollection> linkCollectionList, SiteUser siteUser){
-        Category category = categoryService.createCategory(categoryName, linkCollectionList, siteUser);
+    public Category createCategory(String categoryName, SiteUser siteUser){
+        Category category = categoryService.createCategory(categoryName, siteUser);
         return category;
     }
 

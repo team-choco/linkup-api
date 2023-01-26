@@ -20,9 +20,8 @@ public class Swagger2Config {
     @Bean
     public OpenAPI spingShopOpenAPI() {
         return new OpenAPI()
-                //.components(new Components())
-                .info(new Info().title("LinkUpAPI")
-                        .description("LinkUp API 입니다.")
-                        .version("v0.0.1"));
-    }
+            .info(new Info().title("LinkUpAPI")
+                    .description("LinkUp API 입니다.")
+                    .version("v0.0.1"));
+}
 }
