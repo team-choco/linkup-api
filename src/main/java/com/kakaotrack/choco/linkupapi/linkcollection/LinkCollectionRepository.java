@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface LinkCollectionRepository extends JpaRepository<LinkCollection, Long> {
+public interface LinkCollectionRepository extends JpaRepository<LinkCollection, Integer> {
 
-    Optional<LinkCollection> findBySiteUser(Long id);
+    List<LinkCollection> findBySiteUserId(int site_user_id);
 
 }

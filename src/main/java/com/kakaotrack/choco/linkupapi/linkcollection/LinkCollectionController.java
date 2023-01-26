@@ -21,7 +21,7 @@ public class LinkCollectionController {
     }
 
     @GetMapping(value = "/link-collections/{id}")
-    public Optional<LinkCollection> getBySiteUser(@PathVariable long id){
+    public List<LinkCollection> getBySiteUser(@PathVariable int id){
         return linkCollectionService.getBySiteUser(id);
     }
 
@@ -32,6 +32,6 @@ public class LinkCollectionController {
     }
 
     @DeleteMapping(value = "/link-collections/{id}")
-    public void deleteLinkCollections(@PathVariable long id){ linkCollectionService.deleteLinkCollection(id);}
+    public void deleteLinkCollections(@PathVariable int id){ linkCollectionService.deleteLinkCollection(id);}
 
 }

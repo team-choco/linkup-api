@@ -15,8 +15,8 @@ public class CategoryService {
 
     public List<Category> getAll() {return categoryRepository.findAll();}
 
-    public List<Category> getBySiteUser(Long id){
-        return (List<Category>) categoryRepository.findBySiteUser(id);
+    public List<Category> getBySiteUser(int id){
+        return categoryRepository.findBySiteUserId(id);
     }
 
     public Category createCategory(String categoryName, SiteUser siteUser){
@@ -26,6 +26,6 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public void deleteCategory(Long id){categoryRepository.deleteById(id);}
+    public void deleteCategory(int id){categoryRepository.deleteById(id);}
 
 }

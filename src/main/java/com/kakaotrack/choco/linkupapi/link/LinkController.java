@@ -19,7 +19,7 @@ public class LinkController {
     }
 
     @GetMapping(value="/links/{id}")
-    public List<Link> getBySiteUser(@PathVariable long id){
+    public List<Link> getBySiteUser(@PathVariable int id){
         return linkService.getBySiteUser(id);
     }
 
@@ -30,6 +30,6 @@ public class LinkController {
     }
 
     @DeleteMapping(value = "/links/{id}")
-    public void deleteLink(@PathVariable long id){ linkService.deleteLink(id);}
+    public void deleteLink(@PathVariable int id){ linkService.deleteLink(id);}
 
 }

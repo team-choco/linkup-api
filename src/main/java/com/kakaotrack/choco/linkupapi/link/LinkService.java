@@ -16,8 +16,8 @@ public class LinkService {
         return linkRepository.findAll();
     }
 
-    public List<Link> getBySiteUser(Long id){
-        return (List<Link>) linkRepository.findBySiteUser(id);
+    public List<Link> getBySiteUser(int id){
+        return linkRepository.findBySiteUserId(id);
     }
 
     public Link createLink(String linkTitle, String linkContent, String linkAddress, SiteUser siteUser, LinkCollection linkCollection){
@@ -29,7 +29,7 @@ public class LinkService {
         link.setLink_collection(linkCollection);
         return linkRepository.save(link);
     }
-    public void deleteLink(Long id){
+    public void deleteLink(int id){
         linkRepository.deleteById(id);
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     /*
     로그인환경설정
     그 로그인 페이지나 나오고 그리고 성공했을 때 나오는 페이지등 설정함.
@@ -23,6 +24,7 @@ public class SecurityConfig {
      */
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        http.csrf().disable();
         http.authorizeHttpRequests().requestMatchers(
                 new AntPathRequestMatcher("/**")).permitAll()
             .and()

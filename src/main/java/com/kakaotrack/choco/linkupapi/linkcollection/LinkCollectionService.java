@@ -18,8 +18,8 @@ public class LinkCollectionService {
         return linkCollectionRepository.findAll();
     }
 
-    public Optional<LinkCollection> getBySiteUser(Long id){
-        return linkCollectionRepository.findBySiteUser(id);
+    public List<LinkCollection> getBySiteUser(int id){
+        return linkCollectionRepository.findBySiteUserId(id);
     }
 
     public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
@@ -30,7 +30,7 @@ public class LinkCollectionService {
         return linkCollectionRepository.save(linkCollection);
     }
 
-    public void deleteLinkCollection(Long id){
+    public void deleteLinkCollection(int id){
         linkCollectionRepository.deleteById(id);
     }
 

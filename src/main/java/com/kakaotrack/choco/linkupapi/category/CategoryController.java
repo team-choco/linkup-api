@@ -3,6 +3,7 @@ package com.kakaotrack.choco.linkupapi.category;
 import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollectionRepository;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,16 +11,16 @@ import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
+@RequiredArgsConstructor
 public class CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @GetMapping(value = "/categories")
     public List<Category> getAll() {return categoryService.getAll();}
 
     @GetMapping(value = "/categories/{id}")
-    public List<Category> getBySiteUser(@PathVariable long id) {return categoryService.getBySiteUser(id);}
+    public List<Category> getBySiteUser(@PathVariable int id) {return categoryService.getBySiteUser(id);}
 
     @PostMapping(value = "/categories")
     public Category createCategory(String categoryName, SiteUser siteUser){
@@ -28,6 +29,6 @@ public class CategoryController {
     }
 
     @DeleteMapping(value = "/categories/{id}")
-    public void deleteCategory(@PathVariable long id){ categoryService.deleteCategory(id);}
+    public void deleteCategory(@PathVariable int id){ categoryService.deleteCategory(id);}
 
 }
