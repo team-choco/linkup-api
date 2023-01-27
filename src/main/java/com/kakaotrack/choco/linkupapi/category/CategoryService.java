@@ -20,12 +20,10 @@ public class CategoryService {
     }
 
     public Category createCategory(String categoryName, SiteUser siteUser){
-        Category category = new Category();
-        category.setCategory_name(categoryName);
-        category.setSiteUser(siteUser);
+        Category category = new Category(categoryName, siteUser);
         return categoryRepository.save(category);
     }
 
-    public void deleteCategory(int id){categoryRepository.deleteById(id);}
+    public void deleteByCategoryId(int category_id){categoryRepository.deleteById(category_id);}
 
 }

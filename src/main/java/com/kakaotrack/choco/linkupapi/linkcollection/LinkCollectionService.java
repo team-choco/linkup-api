@@ -30,8 +30,8 @@ public class LinkCollectionService {
         return linkCollectionRepository.save(linkCollection);
     }
 
-    public void deleteLinkCollection(int id){
-        linkCollectionRepository.deleteById(id);
+    public void deleteLinkCollection(int link_collection_id){
+        linkCollectionRepository.deleteById(link_collection_id);
     }
 
 

@@ -31,7 +31,7 @@ public class LinkCollectionController {
         return linkCollection;
     }
 
-    @DeleteMapping(value = "/link-collections/{id}")
-    public void deleteLinkCollections(@PathVariable int id){ linkCollectionService.deleteLinkCollection(id);}
+    @DeleteMapping(value = "/link-collections/{link_collection_id}")
+    public void deleteLinkCollections(@PathVariable int link_collection_id){ linkCollectionService.deleteLinkCollection(link_collection_id);}
 
 }

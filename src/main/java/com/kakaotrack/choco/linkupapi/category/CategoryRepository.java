@@ -12,4 +12,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
     List<Category> findBySiteUserId(int site_user_id);
 
+
 }

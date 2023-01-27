@@ -29,7 +29,7 @@ public class LinkService {
         link.setLink_collection(linkCollection);
         return linkRepository.save(link);
     }
-    public void deleteLink(int id){
-        linkRepository.deleteById(id);
+    public void deleteLink(int link_id){
+        linkRepository.deleteById(link_id);
     }
 }

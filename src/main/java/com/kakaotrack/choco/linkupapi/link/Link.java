@@ -16,7 +16,7 @@ public class Link {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int link_id;
     @Column
     private String link_title;
     @Column
