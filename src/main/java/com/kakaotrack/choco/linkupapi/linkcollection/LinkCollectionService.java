@@ -22,6 +22,10 @@ public class LinkCollectionService {
         return linkCollectionRepository.findBySiteUserId(id);
     }
 
+    public List<LinkCollection> getByLinkCollectionId(int link_collection_id){
+        return linkCollectionRepository.findByLinkCollectionId(link_collection_id);
+    }
+
     public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
         LinkCollection linkCollection = new LinkCollection();
         linkCollection.setLink_collection_name(linkCollectionName);

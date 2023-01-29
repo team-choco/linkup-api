@@ -24,6 +24,11 @@ public class LinkCollectionController {
         return linkCollectionService.getBySiteUser(id);
     }
 
+    @GetMapping(value="/link-collection/{link_collection_id}")
+    public List<LinkCollection> getByLinkCollectionId(@PathVariable int link_collection_id){
+        return linkCollectionService.getByLinkCollectionId(link_collection_id);
+    }
+
     @PostMapping(value = "/link-collections")
     public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
         LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,category);
