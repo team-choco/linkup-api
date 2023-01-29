@@ -11,4 +11,6 @@ public interface LinkCollectionRepository extends JpaRepository<LinkCollection, 
 
     List<LinkCollection> findBySiteUserId(int site_user_id);
 
+    List<LinkCollection> findByLinkCollectionId(int link_collection_id);
+
 }
