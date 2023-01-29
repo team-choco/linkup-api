@@ -20,17 +20,17 @@ public class LinkCollectionController {
     }
 
     @GetMapping(value = "/link-collections/{id}")
-    public Optional<LinkCollection> getBySiteUser(@PathVariable long id){
+    public List<LinkCollection> getBySiteUser(@PathVariable int id){
         return linkCollectionService.getBySiteUser(id);
     }
 
     @PostMapping(value = "/link-collections")
-    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
-        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,listLink,category);
+    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
+        LinkCollection linkCollection = linkCollectionService.createLinkCollection(linkCollectionName,siteUser,category);
         return linkCollection;
     }
 
-    @DeleteMapping(value = "/link-collections/{id}")
-    public void deleteLinkCollections(@PathVariable long id){ linkCollectionService.deleteLinkCollection(id);}
+    @DeleteMapping(value = "/link-collections/{link_collection_id}")
+    public void deleteLinkCollections(@PathVariable int link_collection_id){ linkCollectionService.deleteLinkCollection(link_collection_id);}
 
 }

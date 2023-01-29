@@ -18,21 +18,20 @@ public class LinkCollectionService {
         return linkCollectionRepository.findAll();
     }
 
-    public Optional<LinkCollection> getBySiteUser(Long id){
-        return linkCollectionRepository.findBySiteUser(id);
+    public List<LinkCollection> getBySiteUser(int id){
+        return linkCollectionRepository.findBySiteUserId(id);
     }
 
-    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, List<Link> listLink, Category category){
+    public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){
         LinkCollection linkCollection = new LinkCollection();
-        linkCollection.setLink_list(listLink);
         linkCollection.setLink_collection_name(linkCollectionName);
         linkCollection.setSiteUser(siteUser);
         linkCollection.setCategory(category);
         return linkCollectionRepository.save(linkCollection);
     }
 
-    public void deleteLinkCollection(Long id){
-        linkCollectionRepository.deleteById(id);
+    public void deleteLinkCollection(int link_collection_id){
+        linkCollectionRepository.deleteById(link_collection_id);
     }
 
 

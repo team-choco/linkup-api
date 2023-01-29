@@ -17,7 +17,7 @@ import java.util.List;
 public class LinkCollection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long link_collection_id;
+    private int link_collection_id;
     @Column
     private String link_collection_name;
 

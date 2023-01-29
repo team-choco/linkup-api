@@ -28,7 +28,7 @@ public class UserService {
         return user;
     }
 
-    public Optional<SiteUser> getById(Long id){
+    public Optional<SiteUser> getById(int id){
         return userRepository.findById(id);
     }
 

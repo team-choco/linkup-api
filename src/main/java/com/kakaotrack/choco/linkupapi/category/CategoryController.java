@@ -3,30 +3,31 @@ package com.kakaotrack.choco.linkupapi.category;
 import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollection;
 import com.kakaotrack.choco.linkupapi.linkcollection.LinkCollectionRepository;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @GetMapping(value = "/categories")
     public List<Category> getAll() {return categoryService.getAll();}
 
     @GetMapping(value = "/categories/{id}")
-    public List<Category> getBySiteUser(@PathVariable long id) {return categoryService.getBySiteUser(id);}
+    public List<Category> getBySiteUser(@PathVariable int id) {return categoryService.getBySiteUser(id);}
 
     @PostMapping(value = "/categories")
-    public Category createCategory(String categoryName, List<LinkCollection> linkCollectionList, SiteUser siteUser){
-        Category category = categoryService.createCategory(categoryName, linkCollectionList, siteUser);
+    public Category createCategory(String categoryName, SiteUser siteUser){
+        Category category = categoryService.createCategory(categoryName, siteUser);
         return category;
     }
 
-    @DeleteMapping(value = "/categories/{id}")
-    public void deleteCategory(@PathVariable long id){ categoryService.deleteCategory(id);}
+    @DeleteMapping(value = "/categories/{category_id}")
+    public void deleteCategory(@PathVariable int category_id){ categoryService.deleteByCategoryId(category_id);}
 
 }

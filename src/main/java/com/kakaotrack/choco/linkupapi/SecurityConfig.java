@@ -15,6 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     /*
     로그인환경설정
     그 로그인 페이지나 나오고 그리고 성공했을 때 나오는 페이지등 설정함.
@@ -23,25 +24,27 @@ public class SecurityConfig {
      */
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests().requestMatchers(
-                new AntPathRequestMatcher("/**")).permitAll()
-            .and()
-                .csrf().ignoringRequestMatchers(
-                        new AntPathRequestMatcher("/h2-console/**"))
-            .and()
-                .headers()
-                .addHeaderWriter(new XFrameOptionsHeaderWriter(
-                        XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
-            .and()
-                .formLogin()
-                .loginPage("/user/login")
-                .defaultSuccessUrl("/")
-            .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                ;
+        http
+            .csrf().disable();
+//                .authorizeHttpRequests().requestMatchers(
+//                    new AntPathRequestMatcher("/**")).permitAll()
+//            .and()
+//                .csrf().ignoringRequestMatchers(
+//                        new AntPathRequestMatcher("/h2-console/**"))
+//            .and()
+//                .headers()
+//                .addHeaderWriter(new XFrameOptionsHeaderWriter(
+//                        XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
+//            .and()
+//                .formLogin()
+//                .loginPage("/user/login")
+//                .defaultSuccessUrl("/")
+//            .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+//                .logoutSuccessUrl("/")
+//                .invalidateHttpSession(true)
+//                ;
         return http.build();
     }
     @Bean

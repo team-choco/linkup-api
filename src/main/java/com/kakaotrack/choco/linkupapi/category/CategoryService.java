@@ -15,18 +15,15 @@ public class CategoryService {
 
     public List<Category> getAll() {return categoryRepository.findAll();}
 
-    public List<Category> getBySiteUser(Long id){
-        return (List<Category>) categoryRepository.findBySiteUser(id);
+    public List<Category> getBySiteUser(int id){
+        return categoryRepository.findBySiteUserId(id);
     }
 
-    public Category createCategory(String categoryName, List<LinkCollection> linkCollectionList, SiteUser siteUser){
-        Category category = new Category();
-        category.setCategory_name(categoryName);
-        category.setLink_collection_list(linkCollectionList);
-        category.setSiteUser(siteUser);
+    public Category createCategory(String categoryName, SiteUser siteUser){
+        Category category = new Category(categoryName, siteUser);
         return categoryRepository.save(category);
     }
 
-    public void deleteCategory(Long id){categoryRepository.deleteById(id);}
+    public void deleteByCategoryId(int category_id){categoryRepository.deleteById(category_id);}
 
 }
