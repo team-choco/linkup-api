@@ -25,7 +25,7 @@ public class LinkCollectionController {
     }
 
     @GetMapping(value="/link-collection/{link_collection_id}")
-    public List<LinkCollection> getByLinkCollectionId(@PathVariable int link_collection_id){
+    public LinkCollection getByLinkCollectionId(@PathVariable int link_collection_id){
         return linkCollectionService.getByLinkCollectionId(link_collection_id);
     }
 
