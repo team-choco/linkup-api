@@ -1,5 +1,6 @@
 package com.kakaotrack.choco.linkupapi.linkcollection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kakaotrack.choco.linkupapi.category.Category;
 import com.kakaotrack.choco.linkupapi.link.Link;
@@ -16,17 +17,19 @@ import java.util.List;
 @Table(name = "link_collection")
 public class LinkCollection {
     @Id
+    @Column(name = "link_collection_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int linkCollectionId;
-    @Column
-    private String link_collection_name;
+    @Column(name = "link_collection_name")
+    private String linkCollectionName;
 
     @ManyToOne
     private SiteUser siteUser;
 
-    @OneToMany(mappedBy = "link_collection", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "linkCollection", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"link_collection"})
-    private List<Link> link_list;
+    @JsonIgnore
+    private List<Link> linkList;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
