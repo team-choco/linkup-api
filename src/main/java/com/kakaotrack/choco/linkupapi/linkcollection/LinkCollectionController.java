@@ -1,13 +1,11 @@
 package com.kakaotrack.choco.linkupapi.linkcollection;
 
 import com.kakaotrack.choco.linkupapi.category.Category;
-import com.kakaotrack.choco.linkupapi.link.Link;
 import com.kakaotrack.choco.linkupapi.user.SiteUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class LinkCollectionController {
@@ -19,14 +17,9 @@ public class LinkCollectionController {
         return linkCollectionService.getAll();
     }
 
-    @GetMapping(value = "/link-collections/{id}")
-    public List<LinkCollection> getBySiteUser(@PathVariable int id){
-        return linkCollectionService.getBySiteUser(id);
-    }
-
-    @GetMapping(value="/link-collection/{link_collection_id}")
-    public List<LinkCollection> getByLinkCollectionId(@PathVariable int link_collection_id){
-        return linkCollectionService.getByLinkCollectionId(link_collection_id);
+    @GetMapping(value="/link-collections/{linkCollectionId}")
+    public LinkCollection getByLinkCollectionId(@PathVariable int linkCollectionId){
+        return linkCollectionService.getByLinkCollectionId(linkCollectionId);
     }
 
     @PostMapping(value = "/link-collections")
@@ -35,7 +28,7 @@ public class LinkCollectionController {
         return linkCollection;
     }
 
-    @DeleteMapping(value = "/link-collections/{link_collection_id}")
-    public void deleteLinkCollections(@PathVariable int link_collection_id){ linkCollectionService.deleteLinkCollection(link_collection_id);}
+    @DeleteMapping(value = "/link-collections/{linkCollectionId}")
+    public void deleteLinkCollections(@PathVariable int linkCollectionId){ linkCollectionService.deleteLinkCollection(linkCollectionId);}
 
 }

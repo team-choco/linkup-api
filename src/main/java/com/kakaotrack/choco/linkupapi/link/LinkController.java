@@ -13,8 +13,13 @@ public class LinkController {
     private LinkService linkService;
 
     @GetMapping(value="/links")
-    public List<Link> getAll(){
-        return linkService.getAll();
+    public List<Link> getAll(@RequestParam(required = false, defaultValue = "0") int linkCollectionId){
+        if(linkCollectionId==0){
+            return linkService.getAll();
+        }
+        else{
+            return linkService.getByLinkCollectionId(linkCollectionId);
+        }
     }
 
     @GetMapping(value="/links/{id}")
@@ -28,7 +33,7 @@ public class LinkController {
         return link;
     }
 
-    @DeleteMapping(value = "/links/{link_id}")
-    public void deleteLink(@PathVariable int link_id){ linkService.deleteLink(link_id);}
+    @DeleteMapping(value = "/links/{linkId}")
+    public void deleteLink(@PathVariable int linkId){ linkService.deleteLink(linkId);}
 
 }
