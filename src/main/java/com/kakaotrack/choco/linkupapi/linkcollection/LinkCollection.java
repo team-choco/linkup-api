@@ -27,8 +27,7 @@ public class LinkCollection {
     private SiteUser siteUser;
 
     @OneToMany(mappedBy = "linkCollection", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties({"link_collection"})
-    @JsonIgnore
+    @JsonIgnoreProperties({"linkCollection"})
     private List<Link> linkList;
 
     @ManyToOne

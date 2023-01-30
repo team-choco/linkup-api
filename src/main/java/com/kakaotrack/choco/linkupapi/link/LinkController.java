@@ -13,13 +13,8 @@ public class LinkController {
     private LinkService linkService;
 
     @GetMapping(value="/links")
-    public List<Link> getAll(@RequestParam(required = false, defaultValue = "0") int linkCollectionId){
-        if(linkCollectionId==0){
-            return linkService.getAll();
-        }
-        else{
-            return linkService.getByLinkCollectionId(linkCollectionId);
-        }
+    public List<Link> getAll(){
+        return linkService.getAll();
     }
 
     @GetMapping(value="/links/{id}")

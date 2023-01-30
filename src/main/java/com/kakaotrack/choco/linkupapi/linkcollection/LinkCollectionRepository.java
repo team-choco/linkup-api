@@ -8,6 +8,6 @@ import java.util.Optional;
 @Repository
 public interface LinkCollectionRepository extends JpaRepository<LinkCollection, Integer> {
 
-    Optional<LinkCollection> findByLinkCollectionId(int linkCollectionId);
+    LinkCollection findByLinkCollectionId(int linkCollectionId);
 
 }

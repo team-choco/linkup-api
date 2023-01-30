@@ -18,8 +18,7 @@ public class LinkCollectionService {
 
 
     public LinkCollection getByLinkCollectionId(int linkCollectionId){
-        return linkCollectionRepository.findByLinkCollectionId(linkCollectionId)
-                .orElseThrow();
+        return linkCollectionRepository.findByLinkCollectionId(linkCollectionId);
     }
 
     public LinkCollection createLinkCollection(String linkCollectionName, SiteUser siteUser, Category category){

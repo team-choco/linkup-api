@@ -11,5 +11,4 @@ public interface LinkRepository extends JpaRepository<Link, Integer> {
 
     List<Link> findBySiteUserId(int siteUserId);
 
-    List<Link> findAllByLinkCollection(LinkCollection linkCollection);
 }

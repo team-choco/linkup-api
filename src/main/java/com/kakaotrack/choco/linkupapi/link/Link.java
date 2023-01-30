@@ -31,6 +31,5 @@ public class Link {
 
     @ManyToOne
     @JoinColumn(name="link_collection_id")
-    @JsonIgnore
     private LinkCollection linkCollection;
 }

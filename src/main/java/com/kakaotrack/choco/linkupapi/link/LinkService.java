@@ -34,10 +34,4 @@ public class LinkService {
     public void deleteLink(int linkId){
         linkRepository.deleteById(linkId);
     }
-
-    public List<Link> getByLinkCollectionId(int linkCollectionId) {
-        LinkCollection linkCollection = linkCollectionRepository.findByLinkCollectionId(linkCollectionId)
-                .orElseThrow();
-        return linkRepository.findAllByLinkCollection(linkCollection);
-    }
 }

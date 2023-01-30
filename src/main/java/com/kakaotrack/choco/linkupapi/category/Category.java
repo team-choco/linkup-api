@@ -30,7 +30,6 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"category"})
-    @JsonIgnore
     private List<LinkCollection> linkCollectionList;
 
     //외래키라고함.
